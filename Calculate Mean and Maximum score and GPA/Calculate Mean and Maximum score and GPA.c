@@ -73,26 +73,26 @@ void main()
     float marksArray[5];
     float meanOfMarks, maximumOfMarks;
 
-    // for (int i = 0; i < 5; i++)
-    // {
-    //     printf("Marks for Lab %d : ", (i + 1));
-    //     scanf("%f", &marksArray[i]);
-    // }
+    for (int i = 0; i < 5; i++)
+    {
+        printf("Marks for Lab %d : ", (i + 1));
+        scanf("%f", &marksArray[i]);
+    }
 
-    // meanAndMaximum(marksArray, &meanOfMarks, &maximumOfMarks); //giving the reference values of variables,                                                                                //so the values can be updated at the memory location.
-    // printf("\n");
-    // printf("********  OUTPUT  ********");
-    // printf("\n");
-    // printf("> Mean : %0.2f", meanOfMarks);
-    // printf("\n");
-    // printf("> Maximum score : %0.2f", maximumOfMarks);
-    // printf("\n");
-    // printf("**************************");
+    meanAndMaximum(marksArray, &meanOfMarks, &maximumOfMarks); //giving the reference values of variables,                                                                                //so the values can be updated at the memory location.
+    printf("\n");
+    printf("********  OUTPUT  ********");
+    printf("\n");
+    printf("> Mean : %0.2f", meanOfMarks);
+    printf("\n");
+    printf("> Maximum score : %0.2f", maximumOfMarks);
+    printf("\n");
+    printf("**************************");
 
     printf("\n\n\n");
 
     printf("****  GPA Calculation  **** ");
-    int arrLength = 3; //number of courses
+    int arrLength = 5; //number of courses
     char grades[arrLength];
     char hours[arrLength];
 

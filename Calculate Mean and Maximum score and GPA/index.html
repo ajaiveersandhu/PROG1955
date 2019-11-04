@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>PROG1955</title>
+        <style>
+            body {
+                background: linear-gradient(to right, #00AAFF, #00FF6A);
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+            }
+
+            header {
+                width: 80%;
+                margin: 1rem auto;
+                display: grid;
+            }
+
+            header h1 {
+                text-align: center;
+                font-size: 3rem;
+            }
+
+            header a {
+                display: block;
+                max-width: 70%;
+                height: auto;
+                background: rgba(78, 156, 175, 0.9);
+                padding: 10px;
+                text-align: center;
+                border-radius: 5px;
+                font-size: 2rem;
+                color: white;
+                font-weight: bold;
+                text-decoration: none;
+                margin: 1rem auto;
+            }
+
+            header a:hover {
+                background: rgba(73, 245, 145, 0.9);
+                color: rgba(14, 85, 102, 0.9);
+            }
+
+            main {
+                /* position: relative; */
+                box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.75);
+                width: 65%;
+                margin: auto;
+
+                background-color: rgba(127, 251, 216, 0.089);
+                border-radius: 10px;
+            }
+
+            code { 
+                position: relative;
+                left: -3rem;
+                white-space: pre;
+                font-size: 1.5rem;
+                margin: 0 1rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Code</h1>
+            <a href="Calculate Mean and Maximum score and GPA.c">Download Calculate Mean and Maximum score and GPA.c</a>
+        </header>
+
+        <main>
+            <code>
+                // Name : 
+                // Date of Program Creation : 
+                // Purpose of the program : 
+                
+                #include <stdio.h> 
+                
+                float meanAndMaximum(float *marksArray, float *meanOfMarks, float *maximumOfMarks) 
+                // meanAndMaximum function is not calling printf to print to console.
+                // mean and maximum values are not stored in array to return to function.
+                {
+                    float average = 0;
+                    *maximumOfMarks = marksArray[0]; // to find the largest
+                    
+                    for (int i = 0; i < 5; i++) {
+                        average += marksArray[i];
+                        
+                        if (*maximumOfMarks < marksArray[i]) {
+                            *maximumOfMarks = marksArray[i];
+                        }
+                    }
+                    *meanOfMarks = average / 5;
+                }
+                
+                float GradePoints(char grade) {
+                    switch (grade)
+                    {
+                    case 'A':
+                    case 'a':
+                        return 4;
+                        break;
+                    case 'B':
+                    case 'b':
+                        return 3;
+                        break;
+                    case 'C':
+                    case 'c':
+                        return 2;
+                        break;
+                    case 'D':
+                    case 'd':
+                        return 1;
+                        break;
+                    case 'F':
+                    case 'f':
+                        return 0;
+                        break;
+                    default:
+                        break;
+                    }
+                }
+                
+                float Gpa(char *grades, char *hours, int arrLength) {
+                    
+                    float gpa = 0;
+                    int sumOfHours = 0;
+                    float gradePoint;
+                    
+                    for (int i = 0; i < arrLength; i++) { 
+                        gradePoint = GradePoints(grades[i]); 
+                        gpa += (gradePoint * hours[i]);
+                        sumOfHours += hours[i];
+                    }
+                    return (gpa / sumOfHours);
+                }
+                
+                void main() {
+                    float marksArray[5];
+                    float meanOfMarks, maximumOfMarks;
+                    
+                    for (int i = 0; i < 5; i++) {
+                        printf("Marks for Lab %d : ", (i + 1));
+                        scanf("%f", &marksArray[i]);
+                    }
+                    
+                    meanAndMaximum(marksArray, &meanOfMarks, &maximumOfMarks); 
+                    //giving the reference values of variables, 
+                    //so the values can be updated at the memory location.
+                    printf("\n");
+                    printf("********  OUTPUT  ********");
+                    printf("\n");
+                    printf("> Mean : %0.2f", meanOfMarks);
+                    printf("\n");
+                    printf("> Maximum score : %0.2f", maximumOfMarks);
+                    printf("\n");
+                    printf("**************************");
+                    
+                    printf("\n\n\n");
+                    
+                    printf("****  GPA Calculation  **** ");
+                    int arrLength = 5; //number of courses
+                    char grades[arrLength];
+                    char hours[arrLength];
+                    
+                    for (int i = 0; i < arrLength; i++) {
+                        printf("\n");
+                        printf("Course %d : \n", (i + 1));
+                        printf("- Grade > ");
+                        scanf("%c", &grades[i]);
+                        getchar();
+                        printf("- Hours  > ");
+                        scanf("%i", &hours[i]);
+                        getchar();
+                    }
+                    
+                    printf("\n");
+                    printf("********  OUTPUT  ********");
+                    printf("\n");
+                    printf("GPA : %0.2f", Gpa(grades, hours, arrLength));
+                    printf("\n");
+                    printf("**************************");
+                }
+            </code>
+        </main>
+    </body>
+
+</html>
