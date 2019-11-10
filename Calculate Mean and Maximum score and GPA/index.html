@@ -60,6 +60,12 @@
                 font-size: 1.5rem;
                 margin: 0 1rem;
             }
+
+            .comment {
+            font-size: 0.8rem;
+            font-family: Consolas,monaco,monospace;
+            color: rgba(34, 33, 33, 0.692);
+            }
         </style>
     </head>
 
@@ -71,15 +77,15 @@
 
         <main>
             <code>
-                // Name : 
-                // Date of Program Creation : 
-                // Purpose of the program : 
+                <span class="comment">// Name : </span>
+                <span class="comment">// Date of Program Creation : </span>
+                <span class="comment">// Purpose of the program : </span>
                 
                 #include <stdio.h> 
                 
                 float meanAndMaximum(float *marksArray, float *meanOfMarks, float *maximumOfMarks) 
-                // meanAndMaximum function is not calling printf to print to console.
-                // mean and maximum values are not stored in array to return to function.
+                <span class="comment">// meanAndMaximum function is not calling printf to print to console.</span>
+                <span class="comment">// mean and maximum values are not stored in array to return to function.</span>
                 {
                     float average = 0;
                     *maximumOfMarks = marksArray[0]; // to find the largest
@@ -146,8 +152,8 @@
                     }
                     
                     meanAndMaximum(marksArray, &meanOfMarks, &maximumOfMarks); 
-                    //giving the reference values of variables, 
-                    //so the values can be updated at the memory location.
+                    <span class="comment">//giving the reference values of variables, </span>
+                    <span class="comment">//so the values can be updated at the memory location.</span>
                     printf("\n");
                     printf("********  OUTPUT  ********");
                     printf("\n");
