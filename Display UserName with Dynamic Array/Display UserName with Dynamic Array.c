@@ -60,6 +60,12 @@ int main() {
         printf("%d. %s", (i+1), studentNames[i]); // printing the name of students.
     }
 
-    
+    // freeing the memory
+    free(firstName);
+    free(lastName);
+    free(fullName);
+    for (int i = 0; i < numberOfStudents; i++) {
+        free(studentNames[i]);
+    }
     return 0;
 }
