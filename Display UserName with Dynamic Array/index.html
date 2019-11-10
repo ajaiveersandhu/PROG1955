@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>PROG1955</title>
+        <style>
+            body {
+                background: linear-gradient(to right, #00AAFF, #00FF6A);
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+            }
+
+            header {
+                width: 80%;
+                margin: 1rem auto;
+                display: grid;
+            }
+
+            header h1 {
+                text-align: center;
+                font-size: 3rem;
+            }
+
+            header a {
+                display: block;
+                max-width: 50%;
+                width: 28%;
+                height: auto;
+                background: rgba(78, 156, 175, 0.9);
+                padding: 10px;
+                text-align: center;
+                border-radius: 5px;
+                font-size: 2rem;
+                color: white;
+                font-weight: bold;
+                text-decoration: none;
+                margin: 1rem auto;
+            }
+            
+            header a:hover {
+                background: rgba(73, 245, 145, 0.9);
+                color: rgba(14, 85, 102, 0.9);
+            }
+
+            main {
+                box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.75);
+                width: 65%;
+                margin: auto;
+
+                background-color: rgba(127, 251, 216, 0.089);
+                border-radius: 10px;
+            }
+
+            code { 
+                position: relative;
+                left: -1rem;
+                white-space: pre;
+                font-size: 1.5rem;
+                margin: 0 1rem;
+            }
+
+            .comment {
+                font-size: 0.8rem;
+                font-family: Consolas,monaco,monospace;
+                color: rgba(34, 33, 33, 0.692);
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Code</h1>
+            <a href="Display UserName with Dynamic Array.c">Download Program File</a>
+        </header>
+
+        <main>
+            <code>
+            // Name : 
+            // Date of Program Creation : 
+            // Purpose of the program : 
+                
+            #include <stdio.h>
+            #include <stdlib.h>
+            #include <string.h>
+
+            void fail() { 
+                printf("Memory could not be allocated");
+                exit(EXIT_FAILURE);
+            }
+
+            int main() {
+                int maxCharLength = 20;
+                char *firstName, *lastName;
+
+                <span class="comment">// allocating 20 char memory dynamically</span>
+                <span class="comment">// sizeof(*firstname) is better optimised code. work similar to sizeof(char).</span>
+                firstName = malloc(maxCharLength * sizeof(*firstName));
+                <span class="comment">// checking if malloc returned NULL (happens in case no memory is left to allocate).</span>
+                if (firstName == NULL) fail();
+                <span class="comment">// allocating 20 char memory dynamically</span>
+                lastName = malloc(maxCharLength * sizeof(*lastName));
+                <span class="comment">// checking if malloc returned NULL (happens in case no memory is left to allocate).</span>
+                if (lastName == NULL) fail();  
+
+                <span class="comment">// allocating 20 + 20 + 1 chars memory for firstName + " " + lastName</span>
+                char *fullName = malloc((maxCharLength + maxCharLength + 1) * sizeof(*fullName));
+
+
+                int numberOfStudents; <span class="comment">// user enters the dynamic size of array.</span>
+                printf("\nEnter the numbers of Students Names you want to enter : ");
+                scanf("%d", &numberOfStudents);
+                getchar();
+
+                <span class="comment">// used double pointer because we need to dynamically </span>
+                <span class="comment">// allocate memory to each array element of studentNames.</span>
+                char **studentNames = malloc(numberOfStudents * sizeof(**studentNames));
+                <span class="comment">// it will help us to allocate exact amout of memory based on the length of the name.</span>
+                int fullNameLength;
+
+                for (int i = 0; i < numberOfStudents; i++) {
+                    printf("Student %d >", (i + 1));
+                    printf("\n");
+                    printf("First Name: ");
+                    gets(firstName); <span class="comment">// fetches the name from user.</span>
+                    printf("Last Name: ");
+                    gets(lastName); <span class="comment">// fetches the name from user.</span>
+                    printf("\n");
+
+                    fullName = firstName; <span class="comment">// storing first name in full name</span>
+                    strcat(strcat(fullName, " "), lastName); <span class="comment">// concatinating the first and last name</span>
+                    fullNameLength = strlen(fullName);
+                    <span class="comment">// dynamically creating array in array element.</span>
+                    studentNames[i] = malloc((fullNameLength + 1) * sizeof(*studentNames));
+                    <span class="comment">// copying fullname to dynamically created array</span>
+                    strcpy(studentNames[i], fullName);  
+                }
+
+                printf("\n****************\n");
+                printf("List of Student Names : ");
+                for (int i = 0; i < numberOfStudents; i++) {
+                    printf("%d. %s", (i+1), studentNames[i]); <span class="comment">// printing the name of students.</span>
+                }
+
+                <span class="comment">// freeing the memory</span>
+                free(firstName);
+                free(lastName);
+                free(fullName);
+                for (int i = 0; i < numberOfStudents; i++) {
+                    free(studentNames[i]);
+                }
+                return 0;
+            }
+
+
+            </code>
+        </main>
+    </body>
+
+</html>
