@@ -27,7 +27,6 @@ int main()
     int *firstArray = malloc(arrayLength * sizeof(int));  //allcating array size at run time
     int *secondArray = malloc(arrayLength * sizeof(int)); //allcating array size at run time
 
-    int count = 0;
     for (int x = 0; x < arrayLength; x++) {
         printf("First Array[%d] > ", (x + 1));
         scanf("%d", &firstArray[x]);
