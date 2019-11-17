@@ -119,7 +119,7 @@
                 <span class="comment">// it will help us to allocate exact amout of memory based on the length of the name.</span>
                 int fullNameLength;
 
-                for (int i = 0; i < numberOfStudents; i++) {
+                for (int i = 0; i &lt; numberOfStudents; i++) {
                     printf("Student %d >", (i + 1));
                     printf("\n");
                     printf("First Name: ");
@@ -139,7 +139,7 @@
 
                 printf("\n****************\n");
                 printf("List of Student Names : ");
-                for (int i = 0; i < numberOfStudents; i++) {
+                for (int i = 0; i &lt; numberOfStudents; i++) {
                     printf("%d. %s", (i+1), studentNames[i]); <span class="comment">// printing the name of students.</span>
                 }
 
@@ -147,13 +147,12 @@
                 free(firstName);
                 free(lastName);
                 free(fullName);
-                for (int i = 0; i < numberOfStudents; i++) {
+                for (int i = 0; i &lt; numberOfStudents; i++) {
                     free(studentNames[i]);
                 }
                 return 0;
             }
-
-
+            
             </code>
         </main>
     </body>

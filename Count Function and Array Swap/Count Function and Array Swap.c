@@ -20,13 +20,12 @@ void SwapArrays(int *firstArray, int *secondArray, int len) {
 
 int main()
 {
-    int x, y;
     int arrayLength;
     printf("\n");
     printf("Length of Array > ");
     scanf("%d", &arrayLength);
-    int *firstArray = malloc(arrayLength * sizeof(int));
-    int *secondArray = malloc(arrayLength * sizeof(int));
+    int *firstArray = malloc(arrayLength * sizeof(int));  //allcating array size at run time
+    int *secondArray = malloc(arrayLength * sizeof(int)); //allcating array size at run time
 
     int count = 0;
     for (int x = 0; x < arrayLength; x++) {

@@ -90,10 +90,10 @@
                     float average = 0;
                     *maximumOfMarks = marksArray[0]; // to find the largest
                     
-                    for (int i = 0; i < 5; i++) {
+                    for (int i = 0; i &lt; 5; i++) {
                         average += marksArray[i];
                         
-                        if (*maximumOfMarks < marksArray[i]) {
+                        if (*maximumOfMarks &lt; marksArray[i]) {
                             *maximumOfMarks = marksArray[i];
                         }
                     }
@@ -134,7 +134,7 @@
                     int sumOfHours = 0;
                     float gradePoint;
                     
-                    for (int i = 0; i < arrLength; i++) { 
+                    for (int i = 0; i &lt; arrLength; i++) {
                         gradePoint = GradePoints(grades[i]); 
                         gpa += (gradePoint * hours[i]);
                         sumOfHours += hours[i];
@@ -146,7 +146,7 @@
                     float marksArray[5];
                     float meanOfMarks, maximumOfMarks;
                     
-                    for (int i = 0; i < 5; i++) {
+                    for (int i = 0; i &lt; 5; i++) {
                         printf("Marks for Lab %d : ", (i + 1));
                         scanf("%f", &marksArray[i]);
                     }
@@ -170,7 +170,7 @@
                     char grades[arrLength];
                     char hours[arrLength];
                     
-                    for (int i = 0; i < arrLength; i++) {
+                    for (int i = 0; i &lt; arrLength; i++) {
                         printf("\n");
                         printf("Course %d : \n", (i + 1));
                         printf("- Grade > ");
