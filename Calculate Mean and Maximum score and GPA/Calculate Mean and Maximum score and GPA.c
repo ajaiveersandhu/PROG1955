@@ -79,7 +79,7 @@ void main()
         scanf("%f", &marksArray[i]);
     }
 
-    meanAndMaximum(marksArray, &meanOfMarks, &maximumOfMarks); //giving the reference values of variables,                                                                                //so the values can be updated at the memory location.
+    meanAndMaximum(marksArray, &meanOfMarks, &maximumOfMarks); //giving the reference values of variables,                                                               //so the values can be updated at the memory location.
     printf("\n");
     printf("********  OUTPUT  ********");
     printf("\n");
