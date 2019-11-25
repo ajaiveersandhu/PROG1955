@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>PROG1955</title>
+        <style>
+            body {
+                background: linear-gradient(to right, #00AAFF, #00FF6A);
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+            }
+
+            header {
+                width: 80%;
+                margin: 1rem auto;
+                display: grid;
+            }
+
+            header h1 {
+                text-align: center;
+                font-size: 3rem;
+            }
+
+            header a {
+                display: block;
+                max-width: 50%;
+                width: 28%;
+                height: auto;
+                background: rgba(78, 156, 175, 0.9);
+                padding: 10px;
+                text-align: center;
+                border-radius: 5px;
+                font-size: 2rem;
+                color: white;
+                font-weight: bold;
+                text-decoration: none;
+                margin: 1rem auto;
+            }
+
+            header a:hover {
+                background: rgba(73, 245, 145, 0.9);
+                color: rgba(14, 85, 102, 0.9);
+            }
+
+            main {
+                box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.75);
+                width: 65%;
+                margin: auto;
+
+                background-color: rgba(127, 251, 216, 0.089);
+                border-radius: 10px;
+            }
+
+            code {
+                position: relative;
+                left: -3rem;
+                white-space: pre;
+                font-size: 1.5rem;
+                margin: 0 1rem;
+            }
+
+            .comment {
+                font-size: 0.8rem;
+                font-family: Consolas, monaco, monospace;
+                color: rgba(34, 33, 33, 0.692);
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>Code</h1>
+            <a href="coffe shop orders.c">Download Program File</a>
+        </header>
+
+        <main>
+            <code>
+                <span class="comment">// Name : </span>
+                <span class="comment">// Date of Program Creation : </span>
+                <span class="comment">// Purpose of the program : </span>
+
+                #include &lt;stdio.h&gt;
+                #include &lt;stdlib.h&gt;
+
+                struct CoffeeShop {
+                char customerName[50];
+                int coffeeCup;
+                int teaCup;
+                };
+
+                void printReceipt(struct CoffeeShop *customer) {
+                const float COFFEE = 1.75;
+                const float TEA = 1.5;
+                const int TAX = 13;
+                float total;
+                total = (customer-&gt;coffeeCup * COFFEE) + (customer-&gt;teaCup * TEA);
+                total += (total * TAX) / 100;
+                printf("\n\n");
+                printf("%s ordered %d cups of Coffee and %d cups of Tea.", customer-&gt;customerName,
+                customer-&gt;coffeeCup, customer-&gt;teaCup);
+                printf("\n");
+                printf("\n******************************************\n");
+                printf(" COFFEE %d x $%0.2f ------------- $%0.2f\n", customer-&gt;coffeeCup, COFFEE,
+                (customer-&gt;coffeeCup * COFFEE));
+                printf(" TEA %d x $%0.2f ------------- $%0.2f\n", customer-&gt;teaCup, TEA, (customer-&gt;teaCup *
+                TEA));
+                printf(" TAX ----------------------------- %d%%\n", TAX);
+                printf("\n ----------------------------------------\n");
+                printf(" Total ------------------------ $ %0.2f\n", total);
+                printf("******************************************\n");
+                }
+
+                int main()
+                {
+                int numberOfCustomers;
+                printf("\n");
+                printf("Number of Customers &gt; ");
+                scanf("%d", &numberOfCustomers);
+                getchar();
+                struct CoffeeShop *customerArray = malloc(numberOfCustomers * sizeof(struct CoffeeShop));
+
+                int placeOrder;
+                char orderAgain = '1';
+                int customerName[50];
+
+                printf("\n");
+                for (int x = 0; x &lt; numberOfCustomers; x++)
+                {
+                struct CoffeeShop customerArray[x];
+                printf("Customer Name &gt; ");
+                scanf("%s", customerArray[x].customerName);
+                printf("\n");
+                customerArray[x].coffeeCup = 0;
+                customerArray[x].teaCup = 0;
+                do
+                {
+                placeOrder = 0;
+                printf("\n");
+                printf("What would you like to order ? %s : \n", customerArray[x].customerName);
+                printf("(Choose a number)\n");
+                printf("1. Coffee\n2. Tea\n&gt; ");
+                scanf("%d", &placeOrder);
+                switch (placeOrder) {
+                case 1:
+                printf("Your coffee is on the way. :)\n");
+                customerArray[x].coffeeCup += 1;
+                break;
+
+                case 2:
+                printf("Your tea is on the way. :)\n");
+                customerArray[x].teaCup += 1;
+                break;
+
+                default:
+                printf("Please choose the correct option.\n");
+                break;
+                }
+                printf("\nWould you like to order something else ?");
+                printf("\nTo order something press 'Y'.\nHit 'Q' for reciept\n&gt; ");
+                getchar();
+                orderAgain = getchar();
+
+                if (orderAgain == 'Q' || orderAgain == 'q') {
+                orderAgain = 'Q';
+                }
+
+                } while (orderAgain != 'Q');
+
+                printReceipt(&customerArray[x]);
+                getchar();
+                }
+
+                return 0;
+                }
+
+            </code>
+        </main>
+    </body>
+
+</html>
